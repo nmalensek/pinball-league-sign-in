@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    
+</head>
+<body>
+    <h3>Weekly sign-in</h3>
+    <hr>
+    <div>
+        <label for="newPlayerTextbox">Add player to sign-in:</label>
+        <input id="newPlayerTextbox" type="text" tabindex="1" role="text"/>
+        <input id="addPlayerButton" type="button" tabindex="2" value="Add" role="button" />
+    </div>
+    <div id="storedPlayers" style="display: none;">
+        <h5>Player Roster:</h5>
+        <div id="displaySavedPlayers">
+
+        </div>
+        <hr>
+    </div>
+    <div id="signedIn">
+        <h5>Signed in players:</h5>
+        <div>
+            <ol id="attendingPlayers">
+                
+            </ol>
+        </div>
+    </div>
+    <div>
+        <span>
+            <input id="saveAllPlayersButton" type="button" tabindex="3" role="button" 
+            value="Save all signed-in players" style="display: none;"/>
+        </span>
+        <span>
+            <input id="groupPlayersButton" type="button" tabindex="4" role="button"
+            value="Divide players into groups" disabled/>
+        </span>
+    </div>
+    <hr>
+    <div id="groupsDiv" style="display: none;">
+        <h3>Groups:</h3>
+    </div>
+</body>
+
+
+
+<script src="./pinball-league.js" type="text/javascript"></script>

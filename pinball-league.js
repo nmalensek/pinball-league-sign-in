@@ -121,15 +121,13 @@ groupingFuncs = function() {
         let groupSize = 4;
         let smallGroupSize = 3;
 
-        while ((playerArray.length - groupCounter.getCounter()) % groupSize !== 0) {
+        while (playerArray.length % groupSize !== 0) {
             groups.push(createGroup(smallGroupSize, playerArray));
         }
 
-        while (groupCounter.getCounter() < playerArray.length - 1) {
+        while (playerArray.length > 0) {
             groups.push(createGroup(groupSize, playerArray));
         }
-
-        groupCounter.resetCounter();
 
         return groups;
     }
@@ -137,34 +135,11 @@ groupingFuncs = function() {
     function createGroup(numPlayers, source) {
         let newGroup = [];
         for (var i = 0; i < numPlayers; i++) {
-            newGroup.push(source[groupCounter.getCounter()]);
-            groupCounter.incrementCounter();
+            newGroup.push(source.pop());
         }
 
         return newGroup
     }
-
-    groupCounter = function() {
-        let counter = 0;
-
-        function getCounter() {
-            return counter;
-        }
-
-        function incrementCounter() {
-            return counter++;
-        }
-
-        function resetCounter() {
-            counter = 0;
-        }
-
-        return {
-            getCounter: getCounter,
-            incrementCounter: incrementCounter,
-            resetCounter: resetCounter
-        };
-    }();
 
     return {
         getPlayersFromUi: getPlayersFromUi,
